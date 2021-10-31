@@ -5,6 +5,11 @@
  */
 package modelo;
 
+import java.sql.Date;
+import java.text.DateFormat;
+import java.time.LocalDate;
+import java.util.TimeZone;
+
 /**
  *
  * @author coke zero
@@ -20,11 +25,19 @@ public class Averia {
     private String imagen;
     private Institucion institucion;
     private String descripcion;
-    private String fechaIn;
+    private Date fechaIngreso;
     private String estado;
-    private boolean valida;
+    //if averia = valida
+    private String descSolucion;
+    private int tiempoInvertido;
+    private int empleadosInvolucrados;
+    private double costo;
+    private String responsable;
+    //if averia = finalizada
+    private int cantColaboradores;
+    private Date fechaArreglo;
 
-    public Averia(int idAveria, int nivel, String provincia, String canton, String distrito, String direccion, String imagen, Institucion institucion, String descripcion, String fechaIn, String estado, boolean valida) {
+    public Averia(int idAveria, int nivel, String provincia, String canton, String distrito, String direccion, String imagen, Institucion institucion, String descripcion, Date fechaIn, String estado) {
         this.idAveria = idAveria;
         this.nivel = nivel;
         this.provincia = provincia;
@@ -34,9 +47,17 @@ public class Averia {
         this.imagen = imagen;
         this.institucion = institucion;
         this.descripcion = descripcion;
-        this.fechaIn = fechaIn;
+        this.fechaIngreso = fechaIn;
         this.estado = estado;
-        this.valida = valida;
+        //if averia = valida
+        descSolucion = "";
+        tiempoInvertido = 0;
+        empleadosInvolucrados = 0;
+        costo = 0;
+        responsable = "";
+        //if averia = finalizada
+        cantColaboradores = 0;
+        fechaArreglo = Date.valueOf("12/12/12");
     }
 
     public Averia() {
@@ -115,12 +136,12 @@ public class Averia {
         this.descripcion = descripcion;
     }
 
-    public String getFechaIn() {
-        return fechaIn;
+    public Date getfechaIngreso() {
+        return fechaIngreso;
     }
 
-    public void setFechaIn(String fechaIn) {
-        this.fechaIn = fechaIn;
+    public void setfechaIngreso(Date fechaIn) {
+        this.fechaIngreso = fechaIn;
     }
 
     public String getEstado() {
@@ -131,12 +152,21 @@ public class Averia {
         this.estado = estado;
     }
 
-    public boolean isValida() {
-        return valida;
+    public void pasarAValida(String desc, int horas, int involucrados, double costo, String resp) {
+        if (estado.equals("Valida")) {
+            this.descSolucion = desc;
+            this.tiempoInvertido = horas;
+            this.empleadosInvolucrados = involucrados;
+            this.costo = costo;
+            this.responsable = resp;
+        }
     }
 
-    public void setValida(boolean valida) {
-        this.valida = valida;
+    public void pasarAFinalizada(int cant, Date date) {
+        if (estado.equals("Finalizada")) {
+            cantColaboradores = cant;
+            fechaArreglo = date;
+        }
     }
-    
+
 }
