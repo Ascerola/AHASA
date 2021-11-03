@@ -21,6 +21,7 @@ public class Usuario {
         this.password = password;
         this.tipo = tipo;
     }
+    
     public Usuario(){
         
     }
