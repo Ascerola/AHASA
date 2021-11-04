@@ -9,21 +9,20 @@ package modelo;
  *
  * @author coke zero
  */
-public class Institucion {
+public class Institucion extends Usuario {
 
     private int idInstitucion;
     private String nombre;
     private String correo;
     private String razonSocial;
-    private String password;
     private boolean esReporteador;
 
-    public Institucion(int idInstitucion, String nombre, String correo, String razonSocial, String password, boolean esReporteador) {
+    public Institucion(int idInstitucion, String nombre, String correo, String razonSocial, boolean esReporteador, int idUsuario, String nombreUsuario, String password, String tipo) {
+        super(idUsuario, nombreUsuario, password, tipo);
         this.idInstitucion = idInstitucion;
         this.nombre = nombre;
         this.correo = correo;
         this.razonSocial = razonSocial;
-        this.password = password;
         this.esReporteador = esReporteador;
     }
 
@@ -61,14 +60,6 @@ public class Institucion {
 
     public void setRazonSocial(String razonSocial) {
         this.razonSocial = razonSocial;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public boolean isEsReporteador() {
