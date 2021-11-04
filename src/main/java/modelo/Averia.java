@@ -15,7 +15,7 @@ import java.util.TimeZone;
  * @author coke zero
  */
 public class Averia {
-
+    // Hola
     private int idAveria;
     private int nivel;
     private String provincia;
