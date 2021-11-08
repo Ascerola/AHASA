@@ -87,10 +87,6 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="spNivel" min="-2" pref="50" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
                       <Component id="cbProvincia" max="32767" attributes="0"/>
                       <Component id="cbCanton" alignment="0" max="32767" attributes="0"/>
                       <Component id="cbDistrito" max="32767" attributes="0"/>
@@ -99,6 +95,7 @@
                       <Component id="txtImagen" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtDireccion" alignment="0" max="32767" attributes="0"/>
                       <Component id="cbEstado" max="32767" attributes="0"/>
+                      <Component id="cbNivel" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -117,7 +114,7 @@
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblNivel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="spNivel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbNivel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -159,7 +156,7 @@
                       <Component id="lblEstado" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="cbEstado" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="46" max="32767" attributes="0"/>
+                  <EmptySpace pref="50" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -185,8 +182,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Provincia:"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JSpinner" name="spNivel">
         </Component>
         <Component class="javax.swing.JLabel" name="lblCanton">
           <Properties>
@@ -215,14 +210,22 @@
         <Component class="javax.swing.JComboBox" name="cbProvincia">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="7">
+                <StringItem index="0" value="Guanacaste"/>
+                <StringItem index="1" value="Limon"/>
+                <StringItem index="2" value="Heredia"/>
+                <StringItem index="3" value="San Jose"/>
+                <StringItem index="4" value="Cartago"/>
+                <StringItem index="5" value="Puntarenas"/>
+                <StringItem index="6" value="Alajuela"/>
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cbProvinciaItemStateChanged"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cbProvinciaMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbProvinciaActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -238,6 +241,9 @@
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cbCantonItemStateChanged"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -324,10 +330,24 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+                <StringItem index="0" value="Valida"/>
+                <StringItem index="1" value="No valida "/>
+                <StringItem index="2" value="Finalizada"/>
+                <StringItem index="3" value="Abierta"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cbNivel">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="3">
+                <StringItem index="0" value="Nivel 1"/>
+                <StringItem index="1" value="Nivel 2"/>
+                <StringItem index="2" value="Nivel 3"/>
               </StringArray>
             </Property>
           </Properties>

@@ -15,7 +15,7 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
      * Creates new form frmReporteAverias
      */
     public frmReporteAverias() {
-        initComponents();
+        initComponents();        
     }
 
     /**
@@ -31,7 +31,6 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
         panelDatos = new javax.swing.JPanel();
         lblNivel = new javax.swing.JLabel();
         lblProvincia = new javax.swing.JLabel();
-        spNivel = new javax.swing.JSpinner();
         lblCanton = new javax.swing.JLabel();
         lblDistrito = new javax.swing.JLabel();
         lblDireccion = new javax.swing.JLabel();
@@ -50,6 +49,7 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
         btnCancelar = new javax.swing.JButton();
         lblEstado = new javax.swing.JLabel();
         cbEstado = new javax.swing.JComboBox<>();
+        cbNivel = new javax.swing.JComboBox<>();
         panelListado = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblAverias = new javax.swing.JTable();
@@ -81,9 +81,29 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
         lblDireccion.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lblDireccion.setText("Dirección Exacta:");
 
-        cbProvincia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbProvincia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Guanacaste", "Limon", "Heredia", "San Jose", "Cartago", "Puntarenas", "Alajuela" }));
+        cbProvincia.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbProvinciaItemStateChanged(evt);
+            }
+        });
+        cbProvincia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cbProvinciaMouseClicked(evt);
+            }
+        });
+        cbProvincia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbProvinciaActionPerformed(evt);
+            }
+        });
 
         cbCanton.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbCanton.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbCantonItemStateChanged(evt);
+            }
+        });
 
         cbDistrito.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -107,7 +127,9 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
         lblEstado.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lblEstado.setText("Estado:");
 
-        cbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Valida", "No valida ", "Finalizada", "Abierta" }));
+
+        cbNivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nivel 1", "Nivel 2", "Nivel 3" }));
 
         javax.swing.GroupLayout panelDatosLayout = new javax.swing.GroupLayout(panelDatos);
         panelDatos.setLayout(panelDatosLayout);
@@ -127,9 +149,6 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
                     .addComponent(lblEstado))
                 .addGap(18, 18, 18)
                 .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(panelDatosLayout.createSequentialGroup()
-                        .addComponent(spNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(cbProvincia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cbCanton, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cbDistrito, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -137,7 +156,8 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
                     .addComponent(txtInstitucion)
                     .addComponent(txtImagen)
                     .addComponent(txtDireccion)
-                    .addComponent(cbEstado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cbEstado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbNivel, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDatosLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -152,7 +172,7 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
                 .addGap(25, 25, 25)
                 .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNivel)
-                    .addComponent(spNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblProvincia)
@@ -185,7 +205,7 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
                 .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEstado)
                     .addComponent(cbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)
                     .addComponent(btnGuardar))
@@ -285,6 +305,85 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cbProvinciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbProvinciaActionPerformed
+               
+    }//GEN-LAST:event_cbProvinciaActionPerformed
+
+    private void cbProvinciaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbProvinciaMouseClicked
+        
+    }//GEN-LAST:event_cbProvinciaMouseClicked
+
+    private void cbProvinciaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbProvinciaItemStateChanged
+
+        switch (cbProvincia.getSelectedItem().toString()) {
+            case "Guanacaste":
+                cbCanton.removeAllItems();
+                cbCanton.addItem("Liberia");
+                cbCanton.addItem("Abangares");
+                cbDistrito.removeAllItems();
+                cbDistrito.addItem("Liberia");
+                cbDistrito.addItem("Cañas");
+                break;
+            case "Limon":
+                cbCanton.removeAllItems();
+                cbCanton.addItem("Limon");
+                cbCanton.addItem("Guacimo");
+                cbDistrito.removeAllItems();
+                cbDistrito.addItem("La Sierra");
+                cbDistrito.addItem("San Juan");
+                break; 
+            case "Heredia":
+                cbCanton.removeAllItems();
+                cbCanton.addItem("Heredia");
+                cbCanton.addItem("Barva");
+                cbDistrito.removeAllItems();
+                cbDistrito.addItem("Mercedes");
+                cbDistrito.addItem("Heredia");
+                cbDistrito.addItem("San Franciso");
+                break;  
+            case "San Jose":
+                cbCanton.removeAllItems();
+                cbCanton.addItem("Moravia");
+                cbCanton.addItem("Escazu");
+                cbDistrito.removeAllItems();
+                cbDistrito.addItem("San Jocesito");
+                cbDistrito.addItem("Desamparados");
+                cbDistrito.addItem("Carmen");
+                break; 
+            case "Cartago":
+                cbCanton.removeAllItems();
+                cbCanton.addItem("Cartago");
+                cbCanton.addItem("Paraiso");
+                cbDistrito.removeAllItems();
+                cbDistrito.addItem("Oriental");
+                cbDistrito.addItem("Occidental");
+                cbDistrito.addItem("Carmen");
+                break;
+            case "Puntarenas":
+                cbCanton.removeAllItems();
+                cbCanton.addItem("Puntarenas");
+                cbCanton.addItem("Esparza");
+                cbDistrito.removeAllItems();
+                cbDistrito.addItem("Chacarita");
+                cbDistrito.addItem("Chira");
+                cbDistrito.addItem("Chomes");
+                break;
+            case "Alajuela":
+                cbCanton.removeAllItems();
+                cbCanton.addItem("Alajuela");
+                cbCanton.addItem("Atenas");
+                cbDistrito.removeAllItems();
+                cbDistrito.addItem("Alajuela");
+                cbDistrito.addItem("San José");
+                cbDistrito.addItem("Carrizal");
+                break;  
+        }
+    }//GEN-LAST:event_cbProvinciaItemStateChanged
+
+    private void cbCantonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbCantonItemStateChanged
+        
+    }//GEN-LAST:event_cbCantonItemStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -330,6 +429,7 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cbDistrito;
     private javax.swing.JComboBox<String> cbEstado;
     private javax.swing.JComboBox<String> cbFiltrar;
+    private javax.swing.JComboBox<String> cbNivel;
     private javax.swing.JComboBox<String> cbProvincia;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -346,7 +446,6 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel panelDatos;
     private javax.swing.JPanel panelListado;
-    private javax.swing.JSpinner spNivel;
     private javax.swing.JTable tblAverias;
     private javax.swing.JTextArea txtDescripcion;
     private javax.swing.JTextField txtDireccion;
