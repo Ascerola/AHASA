@@ -118,6 +118,11 @@ public class frmPaginaPrincipal extends javax.swing.JFrame {
         btnMantenimiento.add(btnListadoAverias);
 
         btnSeguimientoAverias.setText("Seguimiento de averías");
+        btnSeguimientoAverias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeguimientoAveriasActionPerformed(evt);
+            }
+        });
         btnMantenimiento.add(btnSeguimientoAverias);
 
         btnInversionConceptoAverias.setText("Inversión por concepto de averías");
@@ -155,6 +160,14 @@ public class frmPaginaPrincipal extends javax.swing.JFrame {
         obj.setLocation(jDesktopPane1.getWidth() / 2 - obj.getWidth() / 2, jDesktopPane1.getHeight() / 2 - obj.getHeight() / 2);
         obj.setVisible(true);
     }//GEN-LAST:event_btnReporteAveriasActionPerformed
+
+    private void btnSeguimientoAveriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeguimientoAveriasActionPerformed
+        frmSeguimientoAverias obj = new frmSeguimientoAverias();
+        jDesktopPane1.add(obj);       
+        obj.toFront();
+        obj.setLocation(jDesktopPane1.getWidth() / 2 - obj.getWidth() / 2, jDesktopPane1.getHeight() / 2 - obj.getHeight() / 2);
+        obj.setVisible(true);
+    }//GEN-LAST:event_btnSeguimientoAveriasActionPerformed
 
     /**
      * @param args the command line arguments

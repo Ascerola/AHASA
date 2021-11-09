@@ -15,7 +15,6 @@ import java.util.TimeZone;
  * @author coke zero
  */
 public class Averia {
-    // Hola
     private int idAveria;
     private int nivel;
     private String provincia;
@@ -23,7 +22,7 @@ public class Averia {
     private String distrito;
     private String direccion;
     private String imagen;
-    private Institucion institucion;
+    private Institucion institucion;    
     private String descripcion;
     private Date fechaIngreso;
     private String estado;

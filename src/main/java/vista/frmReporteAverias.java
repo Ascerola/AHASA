@@ -56,9 +56,10 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
         btnActualizar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         lblFiltro = new javax.swing.JLabel();
-        cbFiltrar = new javax.swing.JComboBox<>();
         btnFiltrar = new javax.swing.JButton();
+        txtFiltro = new javax.swing.JTextField();
 
+        setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblTitulo.setFont(new java.awt.Font("Times New Roman", 1, 30)); // NOI18N
@@ -127,7 +128,7 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
         lblEstado.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lblEstado.setText("Estado:");
 
-        cbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Valida", "No valida ", "Finalizada", "Abierta" }));
+        cbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Abierta", "Pausada", "Valida", "No Valida", " " }));
 
         cbNivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nivel 1", "Nivel 2", "Nivel 3" }));
 
@@ -232,9 +233,7 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
         btnEliminar.setText("Eliminar");
 
         lblFiltro.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        lblFiltro.setText("Filtrar listado por:");
-
-        cbFiltrar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        lblFiltro.setText("Filtrar listado por nivel:");
 
         btnFiltrar.setText("Filtrar");
 
@@ -254,7 +253,7 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
                     .addGroup(panelListadoLayout.createSequentialGroup()
                         .addComponent(lblFiltro)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cbFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnFiltrar)
                         .addGap(69, 69, 69)))
@@ -266,10 +265,10 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(panelListadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblFiltro)
-                    .addComponent(cbFiltrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnFiltrar))
+                    .addComponent(btnFiltrar)
+                    .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(panelListadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEliminar)
@@ -428,7 +427,6 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cbCanton;
     private javax.swing.JComboBox<String> cbDistrito;
     private javax.swing.JComboBox<String> cbEstado;
-    private javax.swing.JComboBox<String> cbFiltrar;
     private javax.swing.JComboBox<String> cbNivel;
     private javax.swing.JComboBox<String> cbProvincia;
     private javax.swing.JScrollPane jScrollPane1;
@@ -449,6 +447,7 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
     private javax.swing.JTable tblAverias;
     private javax.swing.JTextArea txtDescripcion;
     private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtFiltro;
     private javax.swing.JTextField txtImagen;
     private javax.swing.JTextField txtInstitucion;
     // End of variables declaration//GEN-END:variables
