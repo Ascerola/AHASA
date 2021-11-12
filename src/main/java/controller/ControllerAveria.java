@@ -34,6 +34,7 @@ public class ControllerAveria implements ActionListener {
         vistaAverias.btnCancelar.addActionListener(this);
         vistaAverias.btnEliminar.addActionListener(this);
         vistaAverias.btnActualizar.addActionListener(this);
+        vistaAverias.btnFiltrar.addActionListener(this);
     }
     
     @Override
@@ -89,6 +90,9 @@ public class ControllerAveria implements ActionListener {
         }
         if (e.getSource() == vistaAverias.btnEliminar) {
             eliminarAveria();
+        }
+        if (e.getSource() == vistaAverias.btnFiltrar) {
+            filtrarTablaPorFiltro(vistaAverias.tblAverias, vistaAverias.txtFiltro.getText(), vistaAverias.cbFiltro.getSelectedItem().toString());
         }
     }
     
@@ -192,6 +196,9 @@ public class ControllerAveria implements ActionListener {
 
     public void filtrarTabla(JTable table, String filtro) {
         averiadao.filtrarTabla(table, filtro);
+    }
+    public void filtrarTablaPorFiltro(JTable table, String filtrotxt, String filtrocb) {
+        averiadao.filtrarTablaPorFiltro(table, filtrotxt, filtrocb);
     }
     
     public void iniciar() {

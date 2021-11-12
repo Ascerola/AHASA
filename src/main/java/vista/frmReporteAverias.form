@@ -380,11 +380,9 @@
         <Component class="javax.swing.JComboBox" name="cbEstado">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
+              <StringArray count="2">
                 <StringItem index="0" value="Abierta"/>
                 <StringItem index="1" value="Pausada"/>
-                <StringItem index="2" value=" "/>
-                <StringItem index="3" value=" "/>
               </StringArray>
             </Property>
           </Properties>
@@ -552,9 +550,9 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
-                <StringItem index="0" value="provincia"/>
-                <StringItem index="1" value="fechaIngreso"/>
-                <StringItem index="2" value="nivel"/>
+                <StringItem index="0" value="nivel"/>
+                <StringItem index="1" value="provincia"/>
+                <StringItem index="2" value="fechaIngreso"/>
                 <StringItem index="3" value=" "/>
               </StringArray>
             </Property>

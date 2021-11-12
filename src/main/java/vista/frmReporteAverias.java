@@ -128,7 +128,7 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
         lblEstado.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lblEstado.setText("Estado:");
 
-        cbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Abierta", "Pausada", " ", " " }));
+        cbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Abierta", "Pausada" }));
 
         cbNivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
 
@@ -269,7 +269,7 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
 
         btnFiltrar.setText("Filtrar");
 
-        cbFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "provincia", "fechaIngreso", "nivel", " " }));
+        cbFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "nivel", "provincia", "fechaIngreso", " " }));
 
         javax.swing.GroupLayout panelListadoLayout = new javax.swing.GroupLayout(panelListado);
         panelListado.setLayout(panelListadoLayout);
