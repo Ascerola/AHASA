@@ -24,9 +24,10 @@ public class Averia {
     private String imagen;
     private Institucion institucion;    
     private String descripcion;
-    private Date fechaIngreso;
+    private String fechaIngreso;
     private String estado;
-    //if averia = valida
+    private boolean valida;
+    //if averia = valida  
     private String descSolucion;
     private int tiempoInvertido;
     private int empleadosInvolucrados;
@@ -34,9 +35,10 @@ public class Averia {
     private String responsable;
     //if averia = finalizada
     private int cantColaboradores;
-    private Date fechaArreglo;
+    private String fechaArreglo;
+    private String imagenRes;
 
-    public Averia(int idAveria, int nivel, String provincia, String canton, String distrito, String direccion, String imagen, Institucion institucion, String descripcion, Date fechaIn, String estado) {
+    public Averia(int idAveria, int nivel, String provincia, String canton, String distrito, String direccion, String imagen, Institucion institucion, String descripcion, String fechaIn, String estado, boolean valida) {
         this.idAveria = idAveria;
         this.nivel = nivel;
         this.provincia = provincia;
@@ -48,7 +50,8 @@ public class Averia {
         this.descripcion = descripcion;
         this.fechaIngreso = fechaIn;
         this.estado = estado;
-        //if averia = valida
+        this.valida = valida;
+        //if averia = valida       
         descSolucion = "";
         tiempoInvertido = 0;
         empleadosInvolucrados = 0;
@@ -56,7 +59,8 @@ public class Averia {
         responsable = "";
         //if averia = finalizada
         cantColaboradores = 0;
-        fechaArreglo = Date.valueOf("12/12/12");
+        fechaArreglo = "12/12/12";
+        imagenRes = "";
     }
 
     public Averia() {
@@ -135,11 +139,11 @@ public class Averia {
         this.descripcion = descripcion;
     }
 
-    public Date getfechaIngreso() {
+    public String getfechaIngreso() {
         return fechaIngreso;
     }
 
-    public void setfechaIngreso(Date fechaIn) {
+    public void setfechaIngreso(String fechaIn) {
         this.fechaIngreso = fechaIn;
     }
 
@@ -149,6 +153,77 @@ public class Averia {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+    public boolean getValida() {
+        return valida;
+    }
+
+    public void setValida(boolean valida) {
+        this.valida = valida;
+    }
+
+    public String getDescSolucion() {
+        return descSolucion;
+    }
+
+    public void setDescSolucion(String descSolucion) {
+        this.descSolucion = descSolucion;
+    }
+
+    public int getTiempoInvertido() {
+        return tiempoInvertido;
+    }
+
+    public void setTiempoInvertido(int tiempoInvertido) {
+        this.tiempoInvertido = tiempoInvertido;
+    }
+
+    public int getEmpleadosInvolucrados() {
+        return empleadosInvolucrados;
+    }
+
+    public void setEmpleadosInvolucrados(int empleadosInvolucrados) {
+        this.empleadosInvolucrados = empleadosInvolucrados;
+    }
+
+    public double getCosto() {
+        return costo;
+    }
+
+    public void setCosto(double costo) {
+        this.costo = costo;
+    }
+
+    public String getResponsable() {
+        return responsable;
+    }
+
+    public void setResponsable(String responsable) {
+        this.responsable = responsable;
+    }
+
+    public int getCantColaboradores() {
+        return cantColaboradores;
+    }
+
+    public void setCantColaboradores(int cantColaboradores) {
+        this.cantColaboradores = cantColaboradores;
+    }
+
+    public String getFechaArreglo() {
+        return fechaArreglo;
+    }
+
+    public void setFechaArreglo(String fechaArreglo) {
+        this.fechaArreglo = fechaArreglo;
+    }
+
+    public String getImagenRes() {
+        return imagenRes;
+    }
+
+    public void setImagenRes(String imagenRes) {
+        this.imagenRes = imagenRes;
     }
 
     public void pasarAValida(String desc, int horas, int involucrados, double costo, String resp) {
@@ -161,7 +236,7 @@ public class Averia {
         }
     }
 
-    public void pasarAFinalizada(int cant, Date date) {
+    public void pasarAFinalizada(int cant, String date) {
         if (estado.equals("Finalizada")) {
             cantColaboradores = cant;
             fechaArreglo = date;

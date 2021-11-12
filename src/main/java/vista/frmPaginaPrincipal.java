@@ -5,6 +5,8 @@
  */
 package vista;
 
+import controller.ControllerAveria;
+
 /**
  *
  * @author Ana
@@ -155,7 +157,9 @@ public class frmPaginaPrincipal extends javax.swing.JFrame {
 
     private void btnReporteAveriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteAveriasActionPerformed
         frmReporteAverias obj = new frmReporteAverias();
-        jDesktopPane1.add(obj);       
+        jDesktopPane1.add(obj);      
+        ControllerAveria con = new ControllerAveria(obj);
+        con.iniciar();
         obj.toFront();
         obj.setLocation(jDesktopPane1.getWidth() / 2 - obj.getWidth() / 2, jDesktopPane1.getHeight() / 2 - obj.getHeight() / 2);
         obj.setVisible(true);
@@ -163,7 +167,7 @@ public class frmPaginaPrincipal extends javax.swing.JFrame {
 
     private void btnSeguimientoAveriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeguimientoAveriasActionPerformed
         frmSeguimientoAverias obj = new frmSeguimientoAverias();
-        jDesktopPane1.add(obj);       
+        jDesktopPane1.add(obj);  
         obj.toFront();
         obj.setLocation(jDesktopPane1.getWidth() / 2 - obj.getWidth() / 2, jDesktopPane1.getHeight() / 2 - obj.getHeight() / 2);
         obj.setVisible(true);
@@ -200,7 +204,7 @@ public class frmPaginaPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                //new frmPaginaPrincipal().setVisible(true);
+                new frmPaginaPrincipal(lblIdUsuario.getText(), lblNombreUsuario.getText(), lblTipoUsuario.getText()).setVisible(true);
             }
         });
     }
