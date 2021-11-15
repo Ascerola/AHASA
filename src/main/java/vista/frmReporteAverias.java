@@ -5,6 +5,13 @@
  */
 package vista;
 
+import controller.ControllerAveria;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import static vista.frmPaginaPrincipal.lblTipoUsuario;
+
 /**
  *
  * @author coke zero
@@ -15,7 +22,7 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
      * Creates new form frmReporteAverias
      */
     public frmReporteAverias() {
-        initComponents();        
+        initComponents();
     }
 
     /**
@@ -61,6 +68,7 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
         btnFiltrar = new javax.swing.JButton();
         cbFiltro = new javax.swing.JComboBox<>();
         txtFiltro = new javax.swing.JTextField();
+        btnValidar = new javax.swing.JButton();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -271,6 +279,9 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
 
         cbFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "nivel", "provincia", "fechaIngreso", " " }));
 
+        btnValidar.setText("VALIDAR");
+        btnValidar.setEnabled(false);
+
         javax.swing.GroupLayout panelListadoLayout = new javax.swing.GroupLayout(panelListado);
         panelListado.setLayout(panelListadoLayout);
         panelListadoLayout.setHorizontalGroup(
@@ -279,13 +290,8 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(panelListadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelListadoLayout.createSequentialGroup()
-                        .addGroup(panelListadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelListadoLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnEliminar)
-                                .addGap(31, 31, 31)
-                                .addComponent(btnActualizar))
-                            .addGroup(panelListadoLayout.createSequentialGroup()
+                        .addGroup(panelListadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelListadoLayout.createSequentialGroup()
                                 .addComponent(lblFiltro)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(cbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -293,7 +299,14 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
                                 .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                                 .addComponent(btnFiltrar)
-                                .addGap(11, 11, 11)))
+                                .addGap(11, 11, 11))
+                            .addGroup(panelListadoLayout.createSequentialGroup()
+                                .addGap(122, 122, 122)
+                                .addComponent(btnValidar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnEliminar)
+                                .addGap(31, 31, 31)
+                                .addComponent(btnActualizar)))
                         .addContainerGap())
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
@@ -311,7 +324,8 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(panelListadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEliminar)
-                    .addComponent(btnActualizar))
+                    .addComponent(btnActualizar)
+                    .addComponent(btnValidar))
                 .addContainerGap())
         );
 
@@ -347,11 +361,11 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbProvinciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbProvinciaActionPerformed
-               
+
     }//GEN-LAST:event_cbProvinciaActionPerformed
 
     private void cbProvinciaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbProvinciaMouseClicked
-        
+
     }//GEN-LAST:event_cbProvinciaMouseClicked
 
     private void cbProvinciaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbProvinciaItemStateChanged
@@ -372,7 +386,7 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
                 cbDistrito.removeAllItems();
                 cbDistrito.addItem("La Sierra");
                 cbDistrito.addItem("San Juan");
-                break; 
+                break;
             case "Heredia":
                 cbCanton.removeAllItems();
                 cbCanton.addItem("Heredia");
@@ -381,7 +395,7 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
                 cbDistrito.addItem("Mercedes");
                 cbDistrito.addItem("Heredia");
                 cbDistrito.addItem("San Franciso");
-                break;  
+                break;
             case "San Jose":
                 cbCanton.removeAllItems();
                 cbCanton.addItem("Moravia");
@@ -390,7 +404,7 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
                 cbDistrito.addItem("San Jocesito");
                 cbDistrito.addItem("Desamparados");
                 cbDistrito.addItem("Carmen");
-                break; 
+                break;
             case "Cartago":
                 cbCanton.removeAllItems();
                 cbCanton.addItem("Cartago");
@@ -417,24 +431,25 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
                 cbDistrito.addItem("Alajuela");
                 cbDistrito.addItem("San José");
                 cbDistrito.addItem("Carrizal");
-                break;  
+                break;
         }
     }//GEN-LAST:event_cbProvinciaItemStateChanged
 
     private void cbCantonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbCantonItemStateChanged
-        
+
     }//GEN-LAST:event_cbCantonItemStateChanged
 
     private void tblAveriasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAveriasMouseClicked
-        int fila = tblAverias.getSelectedRow();    
-            cbNivel.setSelectedItem(tblAverias.getValueAt(fila, 1).toString());
-            cbProvincia.setSelectedItem(tblAverias.getValueAt(fila, 2).toString());
-            txtDireccion.setText(tblAverias.getValueAt(fila, 5).toString());
-            txtDescripcion.setText(tblAverias.getValueAt(fila, 8).toString());
-            txtImagen.setText(tblAverias.getValueAt(fila, 6).toString());           
-            txtInstitucion.setText(tblAverias.getValueAt(fila, 7).toString());
-            txtFechaIngreso.setText(tblAverias.getValueAt(fila, 9).toString());
-            cbEstado.setSelectedItem(tblAverias.getValueAt(fila, 10).toString());
+        int fila = tblAverias.getSelectedRow();
+        cbNivel.setSelectedItem(tblAverias.getValueAt(fila, 1).toString());
+        cbProvincia.setSelectedItem(tblAverias.getValueAt(fila, 2).toString());
+        txtDireccion.setText(tblAverias.getValueAt(fila, 5).toString());
+        txtDescripcion.setText(tblAverias.getValueAt(fila, 8).toString());
+        txtImagen.setText(tblAverias.getValueAt(fila, 6).toString());
+        txtInstitucion.setText(tblAverias.getValueAt(fila, 7).toString());
+        txtFechaIngreso.setText(tblAverias.getValueAt(fila, 9).toString());
+        cbEstado.setSelectedItem(tblAverias.getValueAt(fila, 10).toString());
+        
     }//GEN-LAST:event_tblAveriasMouseClicked
 
     /**
@@ -478,6 +493,7 @@ public class frmReporteAverias extends javax.swing.JInternalFrame {
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnFiltrar;
     public javax.swing.JButton btnGuardar;
+    public javax.swing.JButton btnValidar;
     public javax.swing.JComboBox<String> cbCanton;
     public javax.swing.JComboBox<String> cbDistrito;
     public javax.swing.JComboBox<String> cbEstado;

@@ -23,7 +23,22 @@ public class frmPaginaPrincipal extends javax.swing.JFrame {
         lblIdUsuario.setText(idUsuario);
         lblNombreUsuario.setText(nomUsuario);
         lblTipoUsuario.setText(tipo);
+        if("Ciudadano".equals(tipo)){
+            btnCiudadanos.setVisible(false);
+            btnInstituciones.setVisible(false);
+            btnSeguimientoAverias.setVisible(false);
+            btnInversionConceptoAverias.setVisible(false);
+        } else if("Institución".equals(tipo)){
+            btnCiudadanos.setVisible(false);
+            btnInstituciones.setVisible(false);
+        } else if("Reportes".equals(tipo)){
+            btnCiudadanos.setVisible(false);
+            btnInstituciones.setVisible(false);
+        }
+        
     }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -156,8 +171,25 @@ public class frmPaginaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReporteAveriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteAveriasActionPerformed
+
         frmReporteAverias obj = new frmReporteAverias();
-        jDesktopPane1.add(obj);      
+        jDesktopPane1.add(obj);       
+        if("Institución".equals(lblTipoUsuario.getText())){           
+            obj.cbNivel.setEnabled(false);
+            obj.cbProvincia.setEnabled(false);
+            obj.cbCanton.setEnabled(false);
+            obj.cbDistrito.setEnabled(false);
+            obj.txtDireccion.setEnabled(false);
+            obj.txtDescripcion.setEnabled(false);
+            obj.txtImagen.setEnabled(false);
+            obj.txtFechaIngreso.setEnabled(false);
+            obj.txtDireccion.setEnabled(false);
+            obj.txtInstitucion.setEnabled(false);
+            obj.cbEstado.setEnabled(false);    
+            obj.btnGuardar.setEnabled(false);
+            obj.btnCancelar.setEnabled(false);
+            obj.btnValidar.setEnabled(true);
+        }
         ControllerAveria con = new ControllerAveria(obj);
         con.iniciar();
         obj.toFront();
@@ -166,11 +198,13 @@ public class frmPaginaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReporteAveriasActionPerformed
 
     private void btnSeguimientoAveriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeguimientoAveriasActionPerformed
-        frmSeguimientoAverias obj = new frmSeguimientoAverias();
-        jDesktopPane1.add(obj);  
-        obj.toFront();
-        obj.setLocation(jDesktopPane1.getWidth() / 2 - obj.getWidth() / 2, jDesktopPane1.getHeight() / 2 - obj.getHeight() / 2);
-        obj.setVisible(true);
+        frmSeguimientoAverias obj1 = new frmSeguimientoAverias();
+        jDesktopPane1.add(obj1);  
+        ControllerAveria con = new ControllerAveria(obj1);
+        con.iniciarSeguimientoAverias();
+        obj1.toFront();
+        obj1.setLocation(jDesktopPane1.getWidth() / 2 - obj1.getWidth() / 2, jDesktopPane1.getHeight() / 2 - obj1.getHeight() / 2);
+        obj1.setVisible(true);
     }//GEN-LAST:event_btnSeguimientoAveriasActionPerformed
 
     /**

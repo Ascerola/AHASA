@@ -64,6 +64,11 @@ public class frmSeguimientoAverias extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblAverias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblAveriasMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblAverias);
 
         lblTitulo.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -76,33 +81,22 @@ public class frmSeguimientoAverias extends javax.swing.JInternalFrame {
 
         txtDesc.setColumns(20);
         txtDesc.setRows(5);
-        txtDesc.setEnabled(false);
         jScrollPane2.setViewportView(txtDesc);
 
         lblHoras.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lblHoras.setText("Horas Invertidas: ");
 
-        txtHoras.setEnabled(false);
-
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel1.setText("Empleados Involucrados:");
-
-        txtEmpleados.setEnabled(false);
 
         lblCosto.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lblCosto.setText("Costo:");
 
-        txtCosto.setEnabled(false);
-
         lblResp.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         lblResp.setText("Persona Responsable:");
 
-        txtResp.setEnabled(false);
-
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2.setText("URL de foto:");
-
-        txtFoto.setEnabled(false);
 
         btnCancelar.setText("Cancelar");
 
@@ -116,14 +110,6 @@ public class frmSeguimientoAverias extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtEmpleados))
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addComponent(lblCosto)
-                        .addGap(105, 105, 105)
-                        .addComponent(txtCosto))
-                    .addGroup(panel1Layout.createSequentialGroup()
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblHoras)
                             .addComponent(lblDesc))
@@ -134,21 +120,31 @@ public class frmSeguimientoAverias extends javax.swing.JInternalFrame {
                             .addGroup(panel1Layout.createSequentialGroup()
                                 .addGap(46, 46, 46)
                                 .addComponent(txtHoras)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(lblResp))
-                        .addGap(25, 25, 25)
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtResp)
-                            .addComponent(txtFoto)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(btnFinalizada)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCancelar)))
-                .addContainerGap())
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtEmpleados))
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addComponent(lblCosto)
+                                .addGap(105, 105, 105)
+                                .addComponent(txtCosto))
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(lblResp))
+                                .addGap(25, 25, 25)
+                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtResp)
+                                    .addComponent(txtFoto)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                                .addGap(61, 61, 61)
+                                .addComponent(btnFinalizada)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                                .addComponent(btnCancelar)))
+                        .addContainerGap())))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,7 +173,7 @@ public class frmSeguimientoAverias extends javax.swing.JInternalFrame {
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtFoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)
                     .addComponent(btnFinalizada))
@@ -217,23 +213,34 @@ public class frmSeguimientoAverias extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblId)
                             .addComponent(txtFiltroId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnFiltrar))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblTitulo)
                         .addGap(18, 18, 18)
-                        .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53)))
+                .addGap(22, 22, 22))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tblAveriasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAveriasMouseClicked
+        int fila = tblAverias.getSelectedRow();
+        txtFoto.setText(tblAverias.getValueAt(fila, 6).toString());
+        txtDesc.setText(tblAverias.getValueAt(fila, 11).toString());
+        txtHoras.setText(tblAverias.getValueAt(fila, 12).toString());
+        txtEmpleados.setText(tblAverias.getValueAt(fila, 13).toString());
+        txtCosto.setText(tblAverias.getValueAt(fila, 14).toString());
+        txtResp.setText(tblAverias.getValueAt(fila, 15).toString());
+    }//GEN-LAST:event_tblAveriasMouseClicked
 
     /**
      * @param args the command line arguments
@@ -271,9 +278,9 @@ public class frmSeguimientoAverias extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnFiltrar;
-    private javax.swing.JButton btnFinalizada;
+    public javax.swing.JButton btnCancelar;
+    public javax.swing.JButton btnFiltrar;
+    public javax.swing.JButton btnFinalizada;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -285,13 +292,13 @@ public class frmSeguimientoAverias extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblResp;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel panel1;
-    private javax.swing.JTable tblAverias;
-    private javax.swing.JTextField txtCosto;
-    private javax.swing.JTextArea txtDesc;
-    private javax.swing.JTextField txtEmpleados;
-    private javax.swing.JTextField txtFiltroId;
-    private javax.swing.JTextField txtFoto;
-    private javax.swing.JTextField txtHoras;
-    private javax.swing.JTextField txtResp;
+    public javax.swing.JTable tblAverias;
+    public javax.swing.JTextField txtCosto;
+    public javax.swing.JTextArea txtDesc;
+    public javax.swing.JTextField txtEmpleados;
+    public javax.swing.JTextField txtFiltroId;
+    public javax.swing.JTextField txtFoto;
+    public javax.swing.JTextField txtHoras;
+    public javax.swing.JTextField txtResp;
     // End of variables declaration//GEN-END:variables
 }
