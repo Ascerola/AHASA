@@ -6,6 +6,7 @@
 package vista;
 
 import controller.ControllerAveria;
+import controller.ControllerInstitucion;
 
 /**
  *
@@ -35,7 +36,6 @@ public class frmPaginaPrincipal extends javax.swing.JFrame {
             btnCiudadanos.setVisible(false);
             btnInstituciones.setVisible(false);
         }
-        
     }
 
 
@@ -117,6 +117,11 @@ public class frmPaginaPrincipal extends javax.swing.JFrame {
         btnRegistro.add(btnCiudadanos);
 
         btnInstituciones.setText("Registro de instituciones");
+        btnInstituciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInstitucionesActionPerformed(evt);
+            }
+        });
         btnRegistro.add(btnInstituciones);
 
         jMenuBar1.add(btnRegistro);
@@ -143,6 +148,11 @@ public class frmPaginaPrincipal extends javax.swing.JFrame {
         btnMantenimiento.add(btnSeguimientoAverias);
 
         btnInversionConceptoAverias.setText("Inversión por concepto de averías");
+        btnInversionConceptoAverias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInversionConceptoAveriasActionPerformed(evt);
+            }
+        });
         btnMantenimiento.add(btnInversionConceptoAverias);
 
         jMenuBar1.add(btnMantenimiento);
@@ -206,6 +216,23 @@ public class frmPaginaPrincipal extends javax.swing.JFrame {
         obj1.setLocation(jDesktopPane1.getWidth() / 2 - obj1.getWidth() / 2, jDesktopPane1.getHeight() / 2 - obj1.getHeight() / 2);
         obj1.setVisible(true);
     }//GEN-LAST:event_btnSeguimientoAveriasActionPerformed
+
+    private void btnInversionConceptoAveriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInversionConceptoAveriasActionPerformed
+        frmInversionConceptoAverias obj = new frmInversionConceptoAverias();
+        jDesktopPane1.add(obj);
+        obj.setLocation(jDesktopPane1.getWidth() / 2 - obj.getWidth() / 2, jDesktopPane1.getHeight() / 2 - obj.getHeight() / 2);
+        obj.setVisible(true);
+    }//GEN-LAST:event_btnInversionConceptoAveriasActionPerformed
+
+    private void btnInstitucionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInstitucionesActionPerformed
+        frmInstitucion obj = new frmInstitucion();
+        jDesktopPane1.add(obj);
+        ControllerInstitucion con = new ControllerInstitucion(obj);
+        con.iniciar();
+        obj.toFront();
+        obj.setLocation(jDesktopPane1.getWidth() / 2 - obj.getWidth() / 2, jDesktopPane1.getHeight() / 2 - obj.getHeight() / 2);
+        obj.setVisible(true);
+    }//GEN-LAST:event_btnInstitucionesActionPerformed
 
     /**
      * @param args the command line arguments

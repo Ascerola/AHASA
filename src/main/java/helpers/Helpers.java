@@ -47,7 +47,7 @@ public class Helpers {
      * Obtner hora actual de la maquina
      * @return
      * @throws ParseException 
-     */
+     */ 
     public Date horaActual() throws ParseException {
         //Instanciamos el objeto Calendar
         //en fecha obtenemos la fecha y hora del sistema

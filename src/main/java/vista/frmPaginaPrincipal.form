@@ -23,6 +23,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Registro de instituciones"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInstitucionesActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -56,6 +59,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Inversi&#xf3;n por concepto de aver&#xed;as"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInversionConceptoAveriasActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
