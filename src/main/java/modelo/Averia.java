@@ -242,5 +242,4 @@ public class Averia {
             fechaArreglo = date;
         }
     }
-
 }

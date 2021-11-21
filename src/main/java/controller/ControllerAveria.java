@@ -324,6 +324,7 @@ public class ControllerAveria implements ActionListener {
         vistaAveriasSeguimiento.txtCosto.setText("");
         vistaAveriasSeguimiento.txtResp.setText("");
         vistaAveriasSeguimiento.txtFoto.setText("");
+        vistaAveriasSeguimiento.txtFechaArreglo.setText("");
     }
 
     public void iniciarSeguimientoAverias() {
@@ -339,6 +340,7 @@ public class ControllerAveria implements ActionListener {
         int empleados = Integer.parseInt(vistaAveriasSeguimiento.txtEmpleados.getText());
         double costo = Double.parseDouble(vistaAveriasSeguimiento.txtCosto.getText());
         String responsable = vistaAveriasSeguimiento.txtResp.getText();
+        String fechaArreglo = vistaAveriasSeguimiento.txtFechaArreglo.getText();
 
         int fila = vistaAveriasSeguimiento.tblAverias.getSelectedRow();
         int id = Integer.parseInt(vistaAveriasSeguimiento.tblAverias.getValueAt(fila, 0).toString());
@@ -351,6 +353,7 @@ public class ControllerAveria implements ActionListener {
         averia.setEmpleadosInvolucrados(empleados);
         averia.setCosto(costo);
         averia.setResponsable(responsable);
+        averia.setFechaArreglo(fechaArreglo);
 
         int r = averiadao.actualizarSeguimientoAveria(averia);
         if (r == 1) {

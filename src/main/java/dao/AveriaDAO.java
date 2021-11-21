@@ -150,8 +150,8 @@ public class AveriaDAO {
     }
     //Metodos para frmSeguimientoAverias
     public void filtrarTablaSeguimiento(JTable table, String filtro) {
-        String[] titulos = {"ID", "NIVEL", "PROVINCIA", "CANTON", "DISTRITO", "DIRECCION", "IMAGEN", "ID INSTITUCION", "DESCRIPCION", "FECHA INGRESO", "ESTADO", "SOLUCION", "HORAS", "NUM EMPLEADOS", "COSTO", "RESPONSABLE", "VALIDA"};
-        String[] registros = new String[17];
+        String[] titulos = {"ID", "NIVEL", "PROVINCIA", "CANTON", "DISTRITO", "DIRECCION", "IMAGEN", "ID INSTITUCION", "DESCRIPCION", "FECHA INGRESO", "ESTADO", "SOLUCION", "HORAS", "NUM EMPLEADOS", "COSTO", "RESPONSABLE", "VALIDA", "FECHA ARREGLO"};
+        String[] registros = new String[18];
         String sql = "SELECT * FROM averias WHERE idAverias LIKE '%" + filtro + "%' AND valida =1";
         DefaultTableModel model = new DefaultTableModel(null, titulos);
         try {
@@ -176,16 +176,17 @@ public class AveriaDAO {
                 registros[14] = rs.getString("costo");
                 registros[15] = rs.getString("responsable");
                 registros[16] = rs.getString("valida");
+                registros[17] = rs.getString("fechaArreglo");
                 model.addRow(registros);
             }
             table.setModel(model);
-        } catch (SQLException e) {
+        } catch (SQLException e) {  
             System.out.println("Error al cargar datos" + e.getMessage());
         }
     }
     public int actualizarSeguimientoAveria(Averia averia) {
         int r = 0;
-        String sql = "UPDATE averias SET imagen=?, estado=?, descSolucion=?, tiempoInvertido=?, empleadosInvolucrados=?, costo=?, responsable=? WHERE idAverias=?";
+        String sql = "UPDATE averias SET imagen=?, estado=?, descSolucion=?, tiempoInvertido=?, empleadosInvolucrados=?, costo=?, responsable=?, fechaArreglo=? WHERE idAverias=?";
         try {
             con = conectar.getConnection();
             ps = con.prepareStatement(sql);  
@@ -196,14 +197,15 @@ public class AveriaDAO {
             ps.setInt(5, averia.getEmpleadosInvolucrados());
             ps.setDouble(6, averia.getCosto());
             ps.setString(7, averia.getResponsable());
-            ps.setInt(8, averia.getIdAveria());
+            ps.setString(8, averia.getFechaArreglo());
+            ps.setInt(9, averia.getIdAveria());
             r = ps.executeUpdate();
 
         } catch (SQLException e) {
             System.out.println("Error al cargar datos" + e.getMessage());
         }
         return r;
-    }
+    }    
     public int pausarSeguimientoAveria(Averia averia) {
         int r = 0;
         String sql = "UPDATE averias SET estado=? WHERE idAverias=?";

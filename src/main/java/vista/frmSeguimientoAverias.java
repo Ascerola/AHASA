@@ -5,6 +5,8 @@
  */
 package vista;
 
+
+
 /**
  *
  * @author coke zero
@@ -46,6 +48,8 @@ public class frmSeguimientoAverias extends javax.swing.JInternalFrame {
         txtFoto = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
         btnFinalizada = new javax.swing.JButton();
+        lblFechaArreglo = new javax.swing.JLabel();
+        txtFechaArreglo = new javax.swing.JTextField();
         lblId = new javax.swing.JLabel();
         txtFiltroId = new javax.swing.JTextField();
         btnFiltrar = new javax.swing.JButton();
@@ -102,6 +106,9 @@ public class frmSeguimientoAverias extends javax.swing.JInternalFrame {
 
         btnFinalizada.setText("Marcar como Finalizada");
 
+        lblFechaArreglo.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        lblFechaArreglo.setText("Fecha de Arreglo:");
+
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
@@ -109,18 +116,6 @@ public class frmSeguimientoAverias extends javax.swing.JInternalFrame {
             .addGroup(panel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblHoras)
-                            .addComponent(lblDesc))
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(panel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
-                            .addGroup(panel1Layout.createSequentialGroup()
-                                .addGap(46, 46, 46)
-                                .addComponent(txtHoras)))
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -141,7 +136,24 @@ public class frmSeguimientoAverias extends javax.swing.JInternalFrame {
                         .addGap(61, 61, 61)
                         .addComponent(btnFinalizada)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                        .addComponent(btnCancelar)))
+                        .addComponent(btnCancelar))
+                    .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panel1Layout.createSequentialGroup()
+                            .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblHoras)
+                                .addComponent(lblDesc))
+                            .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(panel1Layout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
+                                .addGroup(panel1Layout.createSequentialGroup()
+                                    .addGap(46, 46, 46)
+                                    .addComponent(txtHoras)))
+                            .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(panel1Layout.createSequentialGroup()
+                            .addComponent(lblFechaArreglo)
+                            .addGap(46, 46, 46)
+                            .addComponent(txtFechaArreglo))))
                 .addContainerGap())
         );
         panel1Layout.setVerticalGroup(
@@ -171,7 +183,11 @@ public class frmSeguimientoAverias extends javax.swing.JInternalFrame {
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtFoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFechaArreglo)
+                    .addComponent(txtFechaArreglo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)
                     .addComponent(btnFinalizada))
@@ -192,35 +208,38 @@ public class frmSeguimientoAverias extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 697, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTitulo)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(404, 404, 404)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 697, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
                                 .addComponent(lblId)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtFiltroId, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(41, 41, 41)
-                                .addComponent(btnFiltrar)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(btnFiltrar)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblTitulo)
+                        .addGap(0, 905, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitulo)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblId)
-                        .addComponent(txtFiltroId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnFiltrar)))
-                .addGap(18, 18, 18)
+                .addComponent(lblTitulo)
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblId)
+                            .addComponent(txtFiltroId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnFiltrar))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(16, 16, 16))
         );
 
@@ -228,6 +247,7 @@ public class frmSeguimientoAverias extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tblAveriasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAveriasMouseClicked
+        try{
         int fila = tblAverias.getSelectedRow();
         txtFoto.setText(tblAverias.getValueAt(fila, 6).toString());
         txtDesc.setText(tblAverias.getValueAt(fila, 11).toString());
@@ -235,6 +255,10 @@ public class frmSeguimientoAverias extends javax.swing.JInternalFrame {
         txtEmpleados.setText(tblAverias.getValueAt(fila, 13).toString());
         txtCosto.setText(tblAverias.getValueAt(fila, 14).toString());
         txtResp.setText(tblAverias.getValueAt(fila, 15).toString());
+        txtFechaArreglo.setText(tblAverias.getValueAt(fila, 17).toString());
+        }catch(Exception e){
+                System.out.println("Error al seleccionar el elemento en la tabla, compruebe que tenga datos" + e.getMessage());
+        }
     }//GEN-LAST:event_tblAveriasMouseClicked
 
     /**
@@ -282,6 +306,7 @@ public class frmSeguimientoAverias extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblCosto;
     private javax.swing.JLabel lblDesc;
+    public javax.swing.JLabel lblFechaArreglo;
     private javax.swing.JLabel lblHoras;
     private javax.swing.JLabel lblId;
     private javax.swing.JLabel lblResp;
@@ -291,6 +316,7 @@ public class frmSeguimientoAverias extends javax.swing.JInternalFrame {
     public javax.swing.JTextField txtCosto;
     public javax.swing.JTextArea txtDesc;
     public javax.swing.JTextField txtEmpleados;
+    public javax.swing.JTextField txtFechaArreglo;
     public javax.swing.JTextField txtFiltroId;
     public javax.swing.JTextField txtFoto;
     public javax.swing.JTextField txtHoras;
