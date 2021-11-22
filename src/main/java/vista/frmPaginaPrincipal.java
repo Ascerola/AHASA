@@ -6,7 +6,9 @@
 package vista;
 
 import controller.ControllerAveria;
+import controller.ControllerCiudadano;
 import controller.ControllerInstitucion;
+import controller.ControllerInversionConceptoAveria;
 
 /**
  *
@@ -114,6 +116,11 @@ public class frmPaginaPrincipal extends javax.swing.JFrame {
         btnRegistro.setText("Registro");
 
         btnCiudadanos.setText("Registro de ciudadanos");
+        btnCiudadanos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCiudadanosActionPerformed(evt);
+            }
+        });
         btnRegistro.add(btnCiudadanos);
 
         btnInstituciones.setText("Registro de instituciones");
@@ -220,6 +227,9 @@ public class frmPaginaPrincipal extends javax.swing.JFrame {
     private void btnInversionConceptoAveriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInversionConceptoAveriasActionPerformed
         frmInversionConceptoAverias obj = new frmInversionConceptoAverias();
         jDesktopPane1.add(obj);
+        ControllerInversionConceptoAveria con = new ControllerInversionConceptoAveria(obj);
+        con.iniciar();
+        obj.toFront();
         obj.setLocation(jDesktopPane1.getWidth() / 2 - obj.getWidth() / 2, jDesktopPane1.getHeight() / 2 - obj.getHeight() / 2);
         obj.setVisible(true);
     }//GEN-LAST:event_btnInversionConceptoAveriasActionPerformed
@@ -233,6 +243,16 @@ public class frmPaginaPrincipal extends javax.swing.JFrame {
         obj.setLocation(jDesktopPane1.getWidth() / 2 - obj.getWidth() / 2, jDesktopPane1.getHeight() / 2 - obj.getHeight() / 2);
         obj.setVisible(true);
     }//GEN-LAST:event_btnInstitucionesActionPerformed
+
+    private void btnCiudadanosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCiudadanosActionPerformed
+        frmCiudadanos obj = new frmCiudadanos();
+        jDesktopPane1.add(obj);
+        ControllerCiudadano con = new ControllerCiudadano(obj);
+        con.iniciar();
+        obj.toFront();
+        obj.setLocation(jDesktopPane1.getWidth() / 2 - obj.getWidth() / 2, jDesktopPane1.getHeight() / 2 - obj.getHeight() / 2);
+        obj.setVisible(true);
+    }//GEN-LAST:event_btnCiudadanosActionPerformed
 
     /**
      * @param args the command line arguments

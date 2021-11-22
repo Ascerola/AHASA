@@ -89,7 +89,7 @@ public class ControllerAveria implements ActionListener {
                 JOptionPane.showMessageDialog(vistaAverias, "Debe seleccionar un estado");
             } else {
                 try {
-                    actualizarSeguimientoAveria();
+                    actualizarAveria();
                 } catch (ParseException ex) {
                     Logger.getLogger(ControllerAveria.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -172,7 +172,8 @@ public class ControllerAveria implements ActionListener {
         String fechaIngreso = vistaAverias.txtFechaIngreso.getText();
         String estado = vistaAverias.cbEstado.getSelectedItem().toString();
         institucion.setIdInstitucion(idInstituciones);
-
+        boolean valida = false;
+        
         averia.setNivel(nivel);
         averia.setProvincia(provincia);
         averia.setCanton(canton);
@@ -183,6 +184,7 @@ public class ControllerAveria implements ActionListener {
         averia.setfechaIngreso(fechaIngreso);
         averia.setEstado(estado);
         averia.setInstitucion(institucion);
+        averia.setValida(valida);
 
         int r = averiadao.agregarAveria(averia);
         if (r == 1) {
@@ -264,11 +266,11 @@ public class ControllerAveria implements ActionListener {
         averia.setValida(valida);
         int r = averiadao.actualizarAveria(averia);
         if (r == 1) {
-            JOptionPane.showMessageDialog(vistaAverias, "averia modificada con exito");
+            JOptionPane.showMessageDialog(vistaAverias, "averia validada con exito");
             filtrarTabla(vistaAverias.tblAverias, "");
             limpiarCampos();
         } else {
-            JOptionPane.showMessageDialog(vistaAverias, "Error, averia no modificada");
+            JOptionPane.showMessageDialog(vistaAverias, "Error, averia no validada");
         }
     }
 

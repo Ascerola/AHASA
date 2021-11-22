@@ -220,7 +220,7 @@ public class frmInversionConceptoAverias extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblTiempo;
     private javax.swing.JLabel lblTitulo;
     public javax.swing.JTable tblAverias;
-    private javax.swing.JTextField txtBuscar;
+    public javax.swing.JTextField txtBuscar;
     public javax.swing.JTextField txtCosto;
     public javax.swing.JTextField txtPersonas;
     public javax.swing.JTextField txtTiempo;
